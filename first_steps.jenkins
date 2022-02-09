@@ -1,5 +1,33 @@
-#!groovy
+//*#!groovy
+//
+//properties([disableConcurrentBuilds()])
+//
+//pipeline {
+//    agent { 
+//        label 'master'
+//        }
+//    options {
+//        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+//        //timestamps()
+//    }
+//    stages {
+//        stage("First step") {
+//            steps {
+//                sh 'ssh root@172.1.0.196 \'hostname\''
+//            }
+//        }
+//        stage("Second step") {
+//            steps {
+//                sh 'ssh root@172.1.0.196 \'uptime\''
+//            }
+//        }
+ //   }
+//}
 
+
+
+#!groovy
+// Check ub1 properties
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -8,17 +36,17 @@ pipeline {
         }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        //timestamps()
+        timestamps()
     }
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@172.1.0.196 \'hostname\''
+                sh 'ssh root@ub1 \'hostname\''
             }
         }
         stage("Second step") {
             steps {
-                sh 'ssh root@172.1.0.196 \'uptime\''
+                sh 'ssh root@ub1 \'uptime\''
             }
         }
     }
