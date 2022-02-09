@@ -19,5 +19,11 @@ pipeline {
                 sh 'ssh root@172.16.0.196 \'uptime\''
             }
         }
+        stage("Run") {
+            steps {
+                sh 'ssh root@172.16.0.196 \'apt-get update\''
+                sh 'ssh root@172.16.0.196 \'uptime\''
+            }
+        }
     }
 }
